@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRIP CLIENT PANEL - Dashboard</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffffff,#f3e8ff,#fff8cc);
+display:flex;
+flex-direction:column;
+min-height:100vh;
+color:#333;
+text-align:center;
+}
+
+/* HEADER */
+header{
+background:linear-gradient(90deg,#7b2cff,#ffd500);
+color:white;
+padding:25px;
+font-size:28px;
+font-weight:bold;
+letter-spacing:2px;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* MAIN */
+.main{
+flex:1;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:30px;
+}
+
+.card{
+background:white;
+padding:35px;
+width:90%;
+max-width:420px;
+border-radius:18px;
+box-shadow:0 0 25px rgba(123,44,255,0.25);
+}
+
+button{
+padding:14px 35px;
+font-size:18px;
+border:none;
+border-radius:12px;
+background:#7b2cff;
+color:white;
+cursor:pointer;
+transition:0.3s;
+margin-top:15px;
+}
+
+button:hover{
+background:#ffd500;
+color:black;
+transform:scale(1.05);
+}
+
+input{
+padding:12px;
+width:85%;
+margin-top:20px;
+border-radius:10px;
+border:2px solid #7b2cff;
+font-size:16px;
+text-align:center;
+}
+
+.message{
+margin-top:15px;
+font-weight:bold;
+color:#333;
+}
+
+/* FOOTER */
+footer{
+background:#7b2cff;
+color:white;
+padding:15px;
+font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>DRIP CLIENT PANEL</header>
+
+<div class="main">
+
+<div class="card">
+
+<h2>Client Dashboard</h2>
+<p>Secure Download Environment</p>
+
+<button onclick="showKeyInput()">Download File</button>
+
+<div id="keySection" style="display:none;">
+<input type="text" id="userKey" placeholder="Enter 15 Character Access Key">
+<br>
+<button onclick="verifyKey()">Verify & Download</button>
+<div class="message" id="msg"></div>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 DRIP CLIENT PANEL — All Rights Reserved  
+</footer>
+
+<script>
+
+// ✔ Your Download Link
+const fileLink = "https://www.up-4ever.net/wefm0n13fcn2";
+
+// Show key input
+function showKeyInput(){
+document.getElementById("keySection").style.display="block";
+}
+
+// Verify Key & Download
+function verifyKey(){
+let entered = document.getElementById("userKey").value.trim();
+let msg = document.getElementById("msg");
+
+// Pattern: exactly 15 letters/numbers
+let pattern = /^[A-Za-z0-9]{15}$/;
+
+if(!pattern.test(entered)){
+msg.style.color="red";
+msg.innerText="❌ Invalid Key Format (15 alphanumeric only)";
+return;
+}
+
+msg.style.color="green";
+msg.innerText="✅ Access Granted. Download Starting...";
+
+setTimeout(()=>{
+window.location.href=fileLink;
+},1200);
+
+}
+
+</script>
+
+</body>
+</html>
