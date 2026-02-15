@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drip Client Panel</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:Poppins,sans-serif;
+    background:linear-gradient(135deg,#ffffff,#f5e9ff,#fff7cc);
+    color:#333;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.panel{
+    width:95%;
+    max-width:420px;
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+.title{
+    font-size:26px;
+    font-weight:600;
+    background:linear-gradient(90deg,#7b2cff,#ffd000);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    font-size:13px;
+    color:#777;
+    margin-bottom:25px;
+}
+
+.qr{
+    width:220px;
+    height:220px;
+    margin:0 auto 20px;
+    border-radius:12px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    margin-top:10px;
+    font-size:14px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:25px;
+    margin-top:18px;
+    background:linear-gradient(90deg,#7b2cff,#ffd000);
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+button:hover{
+    transform:scale(1.04);
+}
+
+.note{
+    margin-top:15px;
+    font-size:12px;
+    color:#888;
+}
+</style>
+</head>
+
+<body>
+
+<div class="panel">
+    <div class="title">DRIP CLIENT PANEL</div>
+    <div class="subtitle">Complete payment ₹59 to generate your access code</div>
+
+    <!-- 🔥 Dynamic QR -->
+    <div id="qrcode" class="qr"></div>
+
+    <input type="text" id="uti" placeholder="Enter UTR / Transaction ID">
+
+    <button onclick="generate()">Generate Code</button>
+
+    <div class="note">Payment required before code generation</div>
+</div>
+
+<!-- QR Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+
+// 🔗 UPI Payment Link
+var upiLink = "upi://pay?pa=8393073104@fam&pn=Gaurav Kumar&am=59&cu=INR";
+
+// Generate QR
+new QRCode(document.getElementById("qrcode"), {
+    text: upiLink,
+    width: 220,
+    height: 220
+});
+
+function generate(){
+    let uti = document.getElementById("uti").value.trim();
+
+    if(uti.length < 10 || uti.length > 15){
+        alert("Please enter valid Transaction ID");
+        return;
+    }
+
+    localStorage.setItem("paid","yes");
+    window.location.href="key.html";
+}
+
+</script>
+
+</body>
+</html>
