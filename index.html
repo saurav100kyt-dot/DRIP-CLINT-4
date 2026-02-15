@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRIP CLIENT PANEL</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(135deg,#ffffff,#f3e8ff,#fff8cc);
+color:#333;
+display:flex;
+flex-direction:column;
+min-height:100vh;
+text-align:center;
+}
+
+/* HEADER */
+header{
+background:linear-gradient(90deg,#7b2cff,#ffd500);
+color:white;
+padding:30px;
+font-size:32px;
+font-weight:bold;
+letter-spacing:3px;
+box-shadow:0 4px 15px rgba(0,0,0,0.25);
+}
+
+/* MAIN */
+.main{
+flex:1;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:30px;
+}
+
+.intro{
+max-width:600px;
+font-size:18px;
+line-height:1.7;
+color:#444;
+margin-top:20px;
+}
+
+.taglines{
+margin-top:25px;
+color:#7b2cff;
+font-weight:bold;
+line-height:1.9;
+}
+
+/* BUTTON */
+.enter-btn{
+margin-top:40px;
+padding:16px 45px;
+font-size:20px;
+border:none;
+border-radius:14px;
+background:#7b2cff;
+color:white;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 20px rgba(123,44,255,0.4);
+}
+
+.enter-btn:hover{
+background:#ffd500;
+color:black;
+transform:scale(1.08);
+}
+
+/* FOOTER */
+footer{
+background:#7b2cff;
+color:white;
+padding:18px;
+font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>DRIP CLIENT PANEL</header>
+
+<div class="main">
+
+<h2>Welcome To Secure Client Access</h2>
+
+<div class="intro">
+Private connection environment designed for smooth activation experience.<br>
+Our system verifies client status, connects secure nodes and prepares your panel access automatically.
+</div>
+
+<div class="taglines">
+Fast • Secure • Optimized<br>
+Stable Connection Guaranteed<br>
+Access Granted Only For Verified Users
+</div>
+
+<button class="enter-btn" onclick="enterPanel()">ENTER</button>
+
+</div>
+
+<footer>
+© 2026 DRIP CLIENT PANEL — All Rights Reserved
+</footer>
+
+<script>
+function enterPanel(){
+window.location.href="dashboard.html";
+}
+</script>
+
+</body>
+</html>
